@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app="cykelData">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylehseet" type="text/css" href="bootstrap.min.css" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script type="text/javascript" src="cykel.js"></script>
+	</head>
+	<body ng-controller="cykelController as vm">
+		<h1 ng-repeat="cykel in vm.dataset">{{cykel.properties.id}} {{cykel.properties.placering}} {{cykel.properties.antal_cykler}}</h1>
+	</body>
+</html>
