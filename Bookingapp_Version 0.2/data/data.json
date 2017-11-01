@@ -1,0 +1,68 @@
+{ 
+	"rooms" : [
+		{
+			"id" : 1,
+		  "no" : "B1.15",
+		  "booked" : false,
+		  "times" : {
+		    "h1" : true,
+		    "h2" : true,
+		    "h3" : false,
+		    "h4" : false,
+		    "h5" : false,
+		    "h6" : true,
+		    "h7" : false,
+		    "h8" : false,
+		    "h9" : false	    
+		  } 
+		},
+		{
+			"id" : 2,
+		  "no" : "B1.16",
+		  "booked" : false,
+		  "rooms" : {
+		    "h1" : true,
+		    "h2" : true,
+		    "h3" : false,
+		    "h4" : false,
+		    "h5" : false,
+		    "h6" : true,
+		    "h7" : false,
+		    "h8" : false,
+		    "h9" : false	    
+		  } 
+		},
+		{
+			"id" : 2,
+		  "no" : "B1.17",
+		  "booked" : false,
+		  "rooms" : {
+		    "h1" : true,
+		    "h2" : true,
+		    "h3" : false,
+		    "h4" : false,
+		    "h5" : false,
+		    "h6" : true,
+		    "h7" : false,
+		    "h8" : false,
+		    "h9" : false	    
+		  } 
+		},
+		{
+			"id" : 2,
+		  "no" : "B1.18",
+		  "booked" : false,
+		  "rooms" : {
+		    "h1" : true,
+		    "h2" : true,
+		    "h3" : false,
+		    "h4" : false,
+		    "h5" : false,
+		    "h6" : true,
+		    "h7" : false,
+		    "h8" : false,
+		    "h9" : false	    
+		  } 
+		}
+	]
+}
