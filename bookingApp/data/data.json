@@ -1,5 +1,4 @@
-var timetables = [
-{id: "1", rooms: [
+var day1s = [
     {no: "B1.15", booked: false, times: [
         {hour1: true, hour2: true, hour3: false, hour4: true, hour5: false, hour6: true, hour7: true, hour8: true, hour9: true}
     ]},
@@ -16,11 +15,9 @@ var timetables = [
         {hour1: true, hour2: false, hour3: false, hour4: false, hour5: true, hour6: true, hour7: true, hour8: false, hour9: false}
     ]},
 
-]
+];
 
-},
-
-{id: "2", rooms: [
+var day2s = [
     {no: "B1.15", booked: false, times: [
         {hour1: true, hour2: true, hour3: false, hour4: true, hour5: false, hour6: true, hour7: false, hour8: false, hour9: false}
     ]},
@@ -37,11 +34,9 @@ var timetables = [
         {hour1: true, hour2: false, hour3: false, hour4: false, hour5: false, hour6: false, hour7: true, hour8: false, hour9: true}
     ]},
 
-]
-
-},
+];
     
-    {id: "3", rooms: [
+var day3s = [
     {no: "B1.15", booked: true, times: [
         {hour1: true, hour2: true, hour3: false, hour4: true, hour5: false, hour6: true, hour7: true, hour8: false, hour9: false}
     ]},
@@ -58,11 +53,9 @@ var timetables = [
         {hour1: true, hour2: true, hour3: false, hour4: false, hour5: true, hour6: true, hour7: true, hour8: false, hour9: false}
     ]},
 
-]
+];
 
-},
-    
-    {id: "4", rooms: [
+var day4s = [
     {no: "B1.15", booked: false, times: [
         {hour1: true, hour2: true, hour3: true, hour4: true, hour5: false, hour6: true, hour7: true, hour8: false, hour9: false}
     ]},
@@ -79,11 +72,9 @@ var timetables = [
         {hour1: true, hour2: true, hour3: true, hour4: false, hour5: true, hour6: false, hour7: false, hour8: false, hour9: false}
     ]},
 
-]
+];
 
-},
-    
-{id: "5", rooms: [
+var day5s = [
     {no: "B1.15", booked: false, times: [
         {hour1: true, hour2: true, hour3: false, hour4: true, hour5: false, hour6: true, hour7: true, hour8: false, hour9: false}
     ]},
@@ -100,8 +91,4 @@ var timetables = [
         {hour1: true, hour2: true, hour3: false, hour4: false, hour5: false, hour6: false, hour7: false, hour8: false, hour9: false}
     ]},
 
-]
-
-}
-    
-]
+];
