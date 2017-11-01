@@ -53,7 +53,7 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th scope="col">Roomnumber:</th>
+					<th scope="col">Roomnumber</th>
 					<th scope="col">{{vm.products[0].roomdata1.rname}}</th>
 					<th scope="col">{{vm.products[0].roomdata2.rname}}</th>
 					<th scope="col">{{vm.products[0].roomdata3.rname}}</th>
@@ -63,15 +63,15 @@
 			</thead>
 		<tbody>
 			<tr>
-			<th scope="row">8:00 - 9:00</th>
-				<td><button ng-hide="vm.products[0].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h1 == true">{{vm.products[0].roomdata1.bname1}}</p></td>
+			<th scope="row">{{vm.products[0].roomdata1.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h1 == true">{{vm.products[0].roomdata2.bname1}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h1 == true">{{vm.products[0].roomdata2.bname1}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h1 == true">{{vm.products[0].roomdata3.bname1}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h1 == true">{{vm.products[0].roomdata4.bname1}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h1 == true">{{vm.products[0].roomdata5.bname1}}</p></td>
 			</tr>
 			<tr>
-				<th scope="row">9:00 - 10:00</th>
+				<th scope="row">{{vm.products[0].roomdata2.rname}}</th>
 				<td><button ng-hide="vm.products[0].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h2 == true">{{vm.products[0].roomdata1.bname2}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h2 == true">{{vm.products[0].roomdata2.bname2}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h2 == true">{{vm.products[0].roomdata3.bname2}}</p></td>
@@ -79,7 +79,7 @@
 				<td><button ng-hide="vm.products[0].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h2 == true">{{vm.products[0].roomdata5.bname2}}</p></td>
 			</tr>
 			<tr>
-				<th scope="row">10:00 - 11:00</th>
+				<th scope="row">{{vm.products[0].roomdata3.rname}}</th>
 				<td><button ng-hide="vm.products[0].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h3 == true">{{vm.products[0].roomdata1.bname3}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h3 == true">{{vm.products[0].roomdata2.bname3}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h3 == true">{{vm.products[0].roomdata3.bname3}}</p></td>
@@ -87,7 +87,7 @@
 				<td><button ng-hide="vm.products[0].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h3 == true">{{vm.products[0].roomdata5.bname3}}</p></td>
 			</tr>
 			<tr>
-				<th scope="row">11:00 - 12:00</th>
+				<th scope="row">{{vm.products[0].roomdata4.rname}}</th>
 				<td><button ng-hide="vm.products[0].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h4 == true">{{vm.products[0].roomdata1.bname4}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h4 == true">{{vm.products[0].roomdata2.bname4}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h4 == true">{{vm.products[0].roomdata3.bname4}}</p></td>
@@ -95,7 +95,7 @@
 				<td><button ng-hide="vm.products[0].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h4 == true">{{vm.products[0].roomdata5.bname4}}</p></td>
 			</tr>
 			<tr>
-				<th scope="row">12:00 - 13:00</th>
+				<th scope="row">{{vm.products[0].roomdata5.rname}}</th>
 				<td><button ng-hide="vm.products[0].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h5 == true">{{vm.products[0].roomdata1.bname5}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h5 == true">{{vm.products[0].roomdata2.bname5}}</p></td>
 				<td><button ng-hide="vm.products[0].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h5 == true">{{vm.products[0].roomdata3.bname5}}</p></td>
@@ -103,37 +103,6 @@
 				<td><button ng-hide="vm.products[0].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h5 == true">{{vm.products[0].roomdata5.bname5}}</p></td>
 			</tr>
 			<tr>
-				<th scope="row">13:00 - 14:00</th>
-				<td><button ng-hide="vm.products[0].roomdata1.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h6 == true">{{vm.products[0].roomdata1.bname6}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata2.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h6 == true">{{vm.products[0].roomdata2.bname6}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata3.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h6 == true">{{vm.products[0].roomdata3.bname6}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata4.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h6 == true">{{vm.products[0].roomdata4.bname6}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata5.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h6 == true">{{vm.products[0].roomdata5.bname6}}</p></td>
-			</tr>
-			<tr>
-				<th scope="row">14:00 - 15:00</th>
-				<td><button ng-hide="vm.products[0].roomdata1.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h7 == true">{{vm.products[0].roomdata1.bname7}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata2.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h7 == true">{{vm.products[0].roomdata2.bname7}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata3.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h7 == true">{{vm.products[0].roomdata3.bname7}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata4.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h7 == true">{{vm.products[0].roomdata4.bname7}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata5.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h7 == true">{{vm.products[0].roomdata5.bname7}}</p></td>
-			</tr>
-			<tr>
-				<th scope="row">15:00 - 16:00</th>
-				<td><button ng-hide="vm.products[0].roomdata1.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h8 == true">{{vm.products[0].roomdata1.bname8}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata2.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h8 == true">{{vm.products[0].roomdata2.bname8}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata3.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h8 == true">{{vm.products[0].roomdata3.bname8}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata4.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h8 == true">{{vm.products[0].roomdata4.bname8}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata5.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h8 == true">{{vm.products[0].roomdata5.bname8}}</p></td>
-			</tr>
-			<tr>
-				<th scope="row">16:00 - 17:00</th>
-				<td><button ng-hide="vm.products[0].roomdata1.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h9 == true">{{vm.products[0].roomdata1.bname9}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata2.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h9 == true">{{vm.products[0].roomdata2.bname9}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata3.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h9 == true">{{vm.products[0].roomdata3.bname9}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata4.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h9 == true">{{vm.products[0].roomdata4.bname9}}</p></td>
-				<td><button ng-hide="vm.products[0].roomdata5.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h9 == true">{{vm.products[0].roomdata5.bname9}}</p></td>
-			</tr>
 		</tbody>
 		</table>
         </div>                                   
@@ -504,9 +473,6 @@
         </div>
         </section>
     </div>
-	<div ng-show="showButton">
-		<p>Number of patient discharges: test</p>
-	</div>
     <!----Angular----->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <!----Javascript----->
