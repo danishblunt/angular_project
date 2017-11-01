@@ -1,5 +1,5 @@
 li.date-box {
-    border: solid 2px #5f6081;
+    border: solid 2px #007781;
     border-radius: 3px;
     text-align: center;
     height: 50px;
@@ -8,11 +8,11 @@ li.date-box {
 }
 
 li.date-box:hover {
-    background-color: #a8b4a8;
+    background-color: #ff8435;
 }
 
 .active {
-    background-color: #a8b4a8;
+    background-color: #ff8435;
 }
 
 ul {
@@ -35,4 +35,27 @@ a:hover {
 
 .av-rooms {
     margin-top: 50px;
+}
+
+.unbooked-box {
+    border: solid 2px #007781;
+    border-radius: 3px;
+    text-align: center;
+    height: 35px;
+    width: 65px;
+    margin: 3px;
+}
+
+.booked-box {
+    border: solid 2px #ff1414;
+    border-radius: 3px;
+    text-align: center;
+    height: 35px;
+    width: 65px;
+    margin: 3px;
+}
+
+h1{
+	padding-top: 8px;
+	font-size: 12px;
 }
