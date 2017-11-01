@@ -1,0 +1,67 @@
+li.date-box {
+    border: solid 2px #5f6081;
+    border-radius: 3px;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+}
+
+li.date-box:hover {
+    background-color: #a8b4a8;
+}
+
+.active {
+    background-color: #a8b4a8;
+}
+
+ul {
+    margin-top: 30px;
+}
+
+a { 
+    color: black;
+    display: inline-block;
+    position: relative;    
+    z-index: 1;     
+    padding: 1.5em;     
+    margin: -2em;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.av-rooms {
+    margin-top: 50px;
+    border: solid green 3px;
+    padding: 10px;
+}
+
+.room-no {
+    margin: 10px;
+    padding: 10px;
+    border: solid blue 5px;
+    border-radius: 7px;
+    display: inline-block;
+}
+
+.av-hours {
+    margin: 3px;
+    padding: 7px;
+    border: solid green 2px;
+    border-radius: 7px;
+    display: inline-block;
+    font-size: 0.8rem;
+}
+
+.red {
+    color: red;
+    margin: 3px;
+    padding: 7px;
+    border: solid red 2px;
+    border-radius: 7px;
+    display: inline-block;
+    font-size: 0.8rem;
+}
