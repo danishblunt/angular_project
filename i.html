@@ -1,0 +1,481 @@
+<!DOCTYPE>
+<html ng-app="booking">
+    <head>
+        <!----Bootstrap--->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <!----CSS------->
+        <link rel="stylesheet" href="css/style.css">
+        <!----FONTS----->
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    </head>
+    
+    <body ng-controller="BookingController as vm">
+
+    <!---------------------------CALENDAR------------------------------->  
+    <div class="container">
+        <h4>DECEMBER</h4>
+        <section ng-controller="CalendarController as calendar">
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(1) }"><a href ng-click="calendar.selectTab(1)">1</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(2) }"><a href ng-click="calendar.selectTab(2)">2</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(3) }"><a href ng-click="calendar.selectTab(3)">3</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(4) }"><a href ng-click="calendar.selectTab(4)">4</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(5) }"><a href ng-click="calendar.selectTab(5)">5</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(6) }"><a href ng-click="calendar.selectTab(6)">6</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(7) }"><a href ng-click="calendar.selectTab(7)">7</a></li>
+            </ul>
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(8) }"><a href ng-click="calendar.selectTab(8)">8</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(9) }"><a href ng-click="calendar.selectTab(9)">9</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(10) }"><a href ng-click="calendar.selectTab(10)">10</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(11) }"><a href ng-click="calendar.selectTab(11)">11</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(12) }"><a href ng-click="calendar.selectTab(12)">12</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(13) }"><a href ng-click="calendar.selectTab(13)">13</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(14) }"><a href ng-click="calendar.selectTab(14)">14</a></li>
+            </ul>
+            
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(15) }"><a href ng-click="calendar.selectTab(15)">15</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(16) }"><a href ng-click="calendar.selectTab(16)">16</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(17) }"><a href ng-click="calendar.selectTab(17)">17</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(18) }"><a href ng-click="calendar.selectTab(18)">18</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(19) }"><a href ng-click="calendar.selectTab(19)">19</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(20) }"><a href ng-click="calendar.selectTab(20)">20</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(21) }"><a href ng-click="calendar.selectTab(21)">21</a></li>
+            </ul>
+            
+        
+        
+        
+        <!----------------------------SHOW AVAILABLE ROOMS------------------------------------->
+        <div class="av-rooms" ng-show="calendar.isSelected(1)">
+			<h5>Available rooms</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Roomnumber</th>
+					<th scope="col">{{vm.products[0].roomdata1.rname}}</th>
+					<th scope="col">{{vm.products[0].roomdata2.rname}}</th>
+					<th scope="col">{{vm.products[0].roomdata3.rname}}</th>
+					<th scope="col">{{vm.products[0].roomdata4.rname}}</th>
+					<th scope="col">{{vm.products[0].roomdata5.rname}}</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr>
+			<th scope="row">{{vm.products[0].roomdata1.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h1 == true">{{vm.products[0].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h1 == true">{{vm.products[0].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h1 == true">{{vm.products[0].roomdata3.bname1}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h1 == true">{{vm.products[0].roomdata4.bname1}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h1 == true">{{vm.products[0].roomdata5.bname1}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">{{vm.products[0].roomdata2.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h2 == true">{{vm.products[0].roomdata1.bname2}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h2 == true">{{vm.products[0].roomdata2.bname2}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h2 == true">{{vm.products[0].roomdata3.bname2}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata4.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h2 == true">{{vm.products[0].roomdata4.bname2}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h2 == true">{{vm.products[0].roomdata5.bname2}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">{{vm.products[0].roomdata3.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h3 == true">{{vm.products[0].roomdata1.bname3}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h3 == true">{{vm.products[0].roomdata2.bname3}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h3 == true">{{vm.products[0].roomdata3.bname3}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata4.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h3 == true">{{vm.products[0].roomdata4.bname3}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h3 == true">{{vm.products[0].roomdata5.bname3}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">{{vm.products[0].roomdata4.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h4 == true">{{vm.products[0].roomdata1.bname4}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h4 == true">{{vm.products[0].roomdata2.bname4}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h4 == true">{{vm.products[0].roomdata3.bname4}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata4.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h4 == true">{{vm.products[0].roomdata4.bname4}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h4 == true">{{vm.products[0].roomdata5.bname4}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">{{vm.products[0].roomdata5.rname}}</th>
+				<td><button ng-hide="vm.products[0].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata1.h5 == true">{{vm.products[0].roomdata1.bname5}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata2.h5 == true">{{vm.products[0].roomdata2.bname5}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata3.h5 == true">{{vm.products[0].roomdata3.bname5}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata4.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata4.h5 == true">{{vm.products[0].roomdata4.bname5}}</p></td>
+				<td><button ng-hide="vm.products[0].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[0].roomdata5.h5 == true">{{vm.products[0].roomdata5.bname5}}</p></td>
+			</tr>
+			<tr>
+		</tbody>
+		</table>
+        </div>                                   
+                                                                                                                       
+        <div class="av-rooms" ng-show="calendar.isSelected(2)">
+            <h5>Available rooms</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Roomnumber:</th>
+					<th scope="col">{{vm.products[1].roomdata1.rname}}</th>
+					<th scope="col">{{vm.products[1].roomdata2.rname}}</th>
+					<th scope="col">{{vm.products[1].roomdata3.rname}}</th>
+					<th scope="col">{{vm.products[1].roomdata4.rname}}</th>
+					<th scope="col">{{vm.products[1].roomdata5.rname}}</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr>
+			<th scope="row">8:00 - 9:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h1 == true">{{vm.products[1].roomdata1.bname1}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h1 == true">{{vm.products[1].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h1 == true">{{vm.products[1].roomdata3.bname1}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h1 == true">{{vm.products[1].roomdata4.bname1}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h1 == true">{{vm.products[1].roomdata5.bname1}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">9:00 - 10:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h2 == true">{{vm.products[1].roomdata1.bname2}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h2 == true">{{vm.products[1].roomdata2.bname2}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h2 == true">{{vm.products[1].roomdata3.bname2}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h2 == true">{{vm.products[1].roomdata4.bname2}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h2 == true">{{vm.products[1].roomdata5.bname2}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">10:00 - 11:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h3 == true">{{vm.products[1].roomdata1.bname3}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h3 == true">{{vm.products[1].roomdata2.bname3}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h3 == true">{{vm.products[1].roomdata3.bname3}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h3 == true">{{vm.products[1].roomdata4.bname3}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h3 == true">{{vm.products[1].roomdata5.bname3}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">11:00 - 12:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h4 == true">{{vm.products[1].roomdata1.bname4}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h4 == true">{{vm.products[1].roomdata2.bname4}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h4 == true">{{vm.products[1].roomdata3.bname4}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h4 == true">{{vm.products[1].roomdata4.bname4}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h4 == true">{{vm.products[1].roomdata5.bname4}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">12:00 - 13:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h5 == true">{{vm.products[1].roomdata1.bname5}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h5 == true">{{vm.products[1].roomdata2.bname5}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h5 == true">{{vm.products[1].roomdata3.bname5}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h5 == true">{{vm.products[1].roomdata4.bname5}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h5 == true">{{vm.products[1].roomdata5.bname5}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">13:00 - 14:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h6 == true">{{vm.products[1].roomdata1.bname6}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h6 == true">{{vm.products[1].roomdata2.bname6}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h6 == true">{{vm.products[1].roomdata3.bname6}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h6 == true">{{vm.products[1].roomdata4.bname6}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h6 == true">{{vm.products[1].roomdata5.bname6}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">14:00 - 15:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h7 == true">{{vm.products[1].roomdata1.bname7}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h7 == true">{{vm.products[1].roomdata2.bname7}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h7 == true">{{vm.products[1].roomdata3.bname7}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h7 == true">{{vm.products[1].roomdata4.bname7}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h7 == true">{{vm.products[1].roomdata5.bname7}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">15:00 - 16:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h8 == true">{{vm.products[1].roomdata1.bname8}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h8 == true">{{vm.products[1].roomdata2.bname8}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h8 == true">{{vm.products[1].roomdata3.bname8}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h8 == true">{{vm.products[1].roomdata4.bname8}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h8 == true">{{vm.products[1].roomdata5.bname8}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">16:00 - 17:00</th>
+				<td><button ng-hide="vm.products[1].roomdata1.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata1.h9 == true">{{vm.products[1].roomdata1.bname9}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata2.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata2.h9 == true">{{vm.products[1].roomdata2.bname9}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata3.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata3.h9 == true">{{vm.products[1].roomdata3.bname9}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata4.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata4.h9 == true">{{vm.products[1].roomdata4.bname9}}</p></td>
+				<td><button ng-hide="vm.products[1].roomdata5.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[1].roomdata5.h9 == true">{{vm.products[1].roomdata5.bname9}}</p></td>
+			</tr>
+		</tbody>
+		</table>
+		</div> 
+        
+        <div class="av-rooms" ng-show="calendar.isSelected(3)">
+            <h5>Available rooms</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Roomnumber:</th>
+					<th scope="col">{{vm.products[2].roomdata1.rname}}</th>
+					<th scope="col">{{vm.products[2].roomdata2.rname}}</th>
+					<th scope="col">{{vm.products[2].roomdata3.rname}}</th>
+					<th scope="col">{{vm.products[2].roomdata4.rname}}</th>
+					<th scope="col">{{vm.products[2].roomdata5.rname}}</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr>
+			<th scope="row">8:00 - 9:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h1 == true">{{vm.products[2].roomdata1.bname1}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h1 == true">{{vm.products[2].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h1 == true">{{vm.products[2].roomdata3.bname1}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h1 == true">{{vm.products[2].roomdata4.bname1}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h1 == true">{{vm.products[2].roomdata5.bname1}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">9:00 - 10:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h2 == true">{{vm.products[2].roomdata1.bname2}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h2 == true">{{vm.products[2].roomdata2.bname2}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h2 == true">{{vm.products[2].roomdata3.bname2}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h2 == true">{{vm.products[2].roomdata4.bname2}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h2 == true">{{vm.products[2].roomdata5.bname2}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">10:00 - 11:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h3 == true">{{vm.products[2].roomdata1.bname3}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h3 == true">{{vm.products[2].roomdata2.bname3}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h3 == true">{{vm.products[2].roomdata3.bname3}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h3 == true">{{vm.products[2].roomdata4.bname3}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h3 == true">{{vm.products[2].roomdata5.bname3}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">11:00 - 12:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h4 == true">{{vm.products[2].roomdata1.bname4}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h4 == true">{{vm.products[2].roomdata2.bname4}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h4 == true">{{vm.products[2].roomdata3.bname4}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h4 == true">{{vm.products[2].roomdata4.bname4}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h4 == true">{{vm.products[2].roomdata5.bname4}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">12:00 - 13:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h5 == true">{{vm.products[2].roomdata1.bname5}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h5 == true">{{vm.products[2].roomdata2.bname5}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h5 == true">{{vm.products[2].roomdata3.bname5}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h5 == true">{{vm.products[2].roomdata4.bname5}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h5 == true">{{vm.products[2].roomdata5.bname5}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">13:00 - 14:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h6 == true">{{vm.products[2].roomdata1.bname6}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h6 == true">{{vm.products[2].roomdata2.bname6}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h6 == true">{{vm.products[2].roomdata3.bname6}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h6 == true">{{vm.products[2].roomdata4.bname6}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h6 == true">{{vm.products[2].roomdata5.bname6}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">14:00 - 15:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h7 == true">{{vm.products[2].roomdata1.bname7}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h7 == true">{{vm.products[2].roomdata2.bname7}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h7 == true">{{vm.products[2].roomdata3.bname7}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h7 == true">{{vm.products[2].roomdata4.bname7}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h7 == true">{{vm.products[2].roomdata5.bname7}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">15:00 - 16:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h8 == true">{{vm.products[2].roomdata1.bname8}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h8 == true">{{vm.products[2].roomdata2.bname8}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h8 == true">{{vm.products[2].roomdata3.bname8}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h8 == true">{{vm.products[2].roomdata4.bname8}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h8 == true">{{vm.products[2].roomdata5.bname8}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">16:00 - 17:00</th>
+				<td><button ng-hide="vm.products[2].roomdata1.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata1.h9 == true">{{vm.products[2].roomdata1.bname9}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata2.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata2.h9 == true">{{vm.products[2].roomdata2.bname9}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata3.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata3.h9 == true">{{vm.products[2].roomdata3.bname9}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata4.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata4.h9 == true">{{vm.products[2].roomdata4.bname9}}</p></td>
+				<td><button ng-hide="vm.products[2].roomdata5.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[2].roomdata5.h9 == true">{{vm.products[2].roomdata5.bname9}}</p></td>
+			</tr>
+		</tbody>
+		</table>
+		</div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(4)">
+            <h5>Available rooms</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Roomnumber:</th>
+					<th scope="col">{{vm.products[3].roomdata1.rname}}</th>
+					<th scope="col">{{vm.products[3].roomdata2.rname}}</th>
+					<th scope="col">{{vm.products[3].roomdata3.rname}}</th>
+					<th scope="col">{{vm.products[3].roomdata4.rname}}</th>
+					<th scope="col">{{vm.products[3].roomdata5.rname}}</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr>
+			<th scope="row">8:00 - 9:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h1 == true">{{vm.products[3].roomdata1.bname1}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h1 == true">{{vm.products[3].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h1 == true">{{vm.products[3].roomdata3.bname1}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h1 == true">{{vm.products[3].roomdata4.bname1}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h1 == true">{{vm.products[3].roomdata5.bname1}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">9:00 - 10:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h2 == true">{{vm.products[3].roomdata1.bname2}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h2 == true">{{vm.products[3].roomdata2.bname2}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h2 == true">{{vm.products[3].roomdata3.bname2}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h2 == true">{{vm.products[3].roomdata4.bname2}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h2 == true">{{vm.products[3].roomdata5.bname2}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">10:00 - 11:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h3 == true">{{vm.products[3].roomdata1.bname3}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h3 == true">{{vm.products[3].roomdata2.bname3}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h3 == true">{{vm.products[3].roomdata3.bname3}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h3 == true">{{vm.products[3].roomdata4.bname3}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h3 == true">{{vm.products[3].roomdata5.bname3}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">11:00 - 12:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h4 == true">{{vm.products[3].roomdata1.bname4}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h4 == true">{{vm.products[3].roomdata2.bname4}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h4 == true">{{vm.products[3].roomdata3.bname4}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h4 == true">{{vm.products[3].roomdata4.bname4}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h4 == true">{{vm.products[3].roomdata5.bname4}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">12:00 - 13:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h5 == true">{{vm.products[3].roomdata1.bname5}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h5 == true">{{vm.products[3].roomdata2.bname5}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h5 == true">{{vm.products[3].roomdata3.bname5}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h5 == true">{{vm.products[3].roomdata4.bname5}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h5 == true">{{vm.products[3].roomdata5.bname5}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">13:00 - 14:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h6 == true">{{vm.products[3].roomdata1.bname6}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h6 == true">{{vm.products[3].roomdata2.bname6}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h6 == true">{{vm.products[3].roomdata3.bname6}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h6 == true">{{vm.products[3].roomdata4.bname6}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h6 == true">{{vm.products[3].roomdata5.bname6}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">14:00 - 15:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h7 == true">{{vm.products[3].roomdata1.bname7}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h7 == true">{{vm.products[3].roomdata2.bname7}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h7 == true">{{vm.products[3].roomdata3.bname7}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h7 == true">{{vm.products[3].roomdata4.bname7}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h7 == true">{{vm.products[3].roomdata5.bname7}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">15:00 - 16:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h8 == true">{{vm.products[3].roomdata1.bname8}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h8 == true">{{vm.products[3].roomdata2.bname8}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h8 == true">{{vm.products[3].roomdata3.bname8}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h8 == true">{{vm.products[3].roomdata4.bname8}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h8 == true">{{vm.products[3].roomdata5.bname8}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">16:00 - 17:00</th>
+				<td><button ng-hide="vm.products[3].roomdata1.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata1.h9 == true">{{vm.products[3].roomdata1.bname9}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata2.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata2.h9 == true">{{vm.products[3].roomdata2.bname9}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata3.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata3.h9 == true">{{vm.products[3].roomdata3.bname9}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata4.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata4.h9 == true">{{vm.products[3].roomdata4.bname9}}</p></td>
+				<td><button ng-hide="vm.products[3].roomdata5.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[3].roomdata5.h9 == true">{{vm.products[3].roomdata5.bname9}}</p></td>
+			</tr>
+		</tbody>
+		</table>
+        </div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(5)">
+            <h5>Available rooms</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Roomnumber:</th>
+					<th scope="col">{{vm.products[4].roomdata1.rname}}</th>
+					<th scope="col">{{vm.products[4].roomdata2.rname}}</th>
+					<th scope="col">{{vm.products[4].roomdata3.rname}}</th>
+					<th scope="col">{{vm.products[4].roomdata4.rname}}</th>
+					<th scope="col">{{vm.products[4].roomdata5.rname}}</th>
+				</tr>
+			</thead>
+		<tbody>
+			<tr>
+			<th scope="row">8:00 - 9:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h1 == true">{{vm.products[4].roomdata1.bname1}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h1 == true">{{vm.products[4].roomdata2.bname1}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h1 == true">{{vm.products[4].roomdata3.bname1}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h1 == true">{{vm.products[4].roomdata4.bname1}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h1 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h1 == true">{{vm.products[4].roomdata5.bname1}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">9:00 - 10:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h2 == true">{{vm.products[4].roomdata1.bname2}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h2 == true">{{vm.products[4].roomdata2.bname2}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h2 == true">{{vm.products[4].roomdata3.bname2}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h2 == true">{{vm.products[4].roomdata4.bname2}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h2 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h2 == true">{{vm.products[4].roomdata5.bname2}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">10:00 - 11:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h3 == true">{{vm.products[4].roomdata1.bname3}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h3 == true">{{vm.products[4].roomdata2.bname3}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h3 == true">{{vm.products[4].roomdata3.bname3}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h3 == true">{{vm.products[4].roomdata4.bname3}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h3 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h3 == true">{{vm.products[4].roomdata5.bname3}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">11:00 - 12:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h4 == true">{{vm.products[4].roomdata1.bname4}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h4 == true">{{vm.products[4].roomdata2.bname4}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h4 == true">{{vm.products[4].roomdata3.bname4}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h4 == true">{{vm.products[4].roomdata4.bname4}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h4 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h4 == true">{{vm.products[4].roomdata5.bname4}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">12:00 - 13:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h5 == true">{{vm.products[4].roomdata1.bname5}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h5 == true">{{vm.products[4].roomdata2.bname5}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h5 == true">{{vm.products[4].roomdata3.bname5}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h5 == true">{{vm.products[4].roomdata4.bname5}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h5 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h5 == true">{{vm.products[4].roomdata5.bname5}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">13:00 - 14:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h6 == true">{{vm.products[4].roomdata1.bname6}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h6 == true">{{vm.products[4].roomdata2.bname6}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h6 == true">{{vm.products[4].roomdata3.bname6}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h6 == true">{{vm.products[4].roomdata4.bname6}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h6 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h6 == true">{{vm.products[4].roomdata5.bname6}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">14:00 - 15:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h7 == true">{{vm.products[4].roomdata1.bname7}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h7 == true">{{vm.products[4].roomdata2.bname7}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h7 == true">{{vm.products[4].roomdata3.bname7}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h7 == true">{{vm.products[4].roomdata4.bname7}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h7 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h7 == true">{{vm.products[4].roomdata5.bname7}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">15:00 - 16:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h8 == true">{{vm.products[4].roomdata1.bname8}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h8 == true">{{vm.products[4].roomdata2.bname8}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h8 == true">{{vm.products[4].roomdata3.bname8}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h8 == true">{{vm.products[4].roomdata4.bname8}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h8 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h8 == true">{{vm.products[4].roomdata5.bname8}}</p></td>
+			</tr>
+			<tr>
+				<th scope="row">16:00 - 17:00</th>
+				<td><button ng-hide="vm.products[4].roomdata1.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata1.h9 == true">{{vm.products[4].roomdata1.bname9}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata2.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata2.h9 == true">{{vm.products[4].roomdata2.bname9}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata3.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata3.h9 == true">{{vm.products[4].roomdata3.bname9}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata4.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata4.h9 == true">{{vm.products[4].roomdata4.bname9}}</p></td>
+				<td><button ng-hide="vm.products[4].roomdata5.h9 == true" type="button" class="btn btn-primary">Book</button><p ng-show="vm.products[4].roomdata5.h9 == true">{{vm.products[4].roomdata5.bname9}}</p></td>
+			</tr>
+		</tbody>
+		</table>
+        </div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(6)">
+            <p>The rooms cannot be pre-booked on weekends</p>
+        </div>
+        
+        <div class="av-rooms" ng-show="calendar.isSelected(7)">
+            <p>The rooms cannot be pre-booked on weekends</p>
+        </div>
+        </section>
+    </div>
+    <!----Angular----->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!----Javascript----->
+    <script src="js/app.js"></script>
+    </body>
+</html>
