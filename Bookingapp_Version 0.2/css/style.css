@@ -1,18 +1,20 @@
+.active{
+    background-color: #F0833D;
+    border: solid 2px #F0833D;
+}
+
 li.date-box {
-    border: solid 2px #5f6081;
+    border: solid 2px #006F79;
     border-radius: 3px;
     text-align: center;
     height: 50px;
     width: 50px;
     margin: 3px;
+    max-width: 100%;
 }
 
 li.date-box:hover {
-    background-color: #a8b4a8;
-}
-
-.active {
-    background-color: #a8b4a8;
+    background-color: #D3D3D3;
 }
 
 ul {
@@ -35,4 +37,41 @@ a:hover {
 
 .av-rooms {
     margin-top: 50px;
+}
+h5{
+    font-family: Frutiger LT Std 55 Roman;
+    margin-top:5%;
+    text-align: center;
+    font-size: 1rem;
+}
+h4{
+    font-family: Frutiger LT Std 55 Roman;
+    text-align: center;
+    font-size:1.5rem;
+    margin-top:5%;
+}
+
+header{
+    background-color: #007680;
+    height: 100px;
+}
+header img{
+    height:90px;
+    
+}
+.calendar{
+    max-width: 100%;
+}
+h4.booking{
+    margin-top:15%;
+}
+p{
+    font-family: Arial;
+    margin-top:5%;
+}
+div.green{
+    width:50px;
+    height:50px;
+    border-radius: 20%;
+    border: 2 px #4D8C62;
 }
