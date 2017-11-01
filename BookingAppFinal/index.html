@@ -1,0 +1,661 @@
+<!DOCTYPE>
+<html ng-app="booking">
+    <head>
+        <!----Bootstrap--->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <!----CSS------->
+        <link rel="stylesheet" href="css/style.css">
+        <!----FONTS----->
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    </head>
+    <header class="text-center">
+        <img src="img/eal%20logo.jpg" alt="EAL's Logo">
+    </header>   
+    <body ng-controller="BookingController as vm">
+
+    <!---------------------------CALENDAR------------------------------->  
+    <div class="container">
+       <div class="row">
+        <section ng-controller="CalendarController as calendar" >
+          <h4 class="text-align">1. CHOOSE A DATE</h4>
+           <h5 class="text-align">&#8882; DECEMBER &#8883; </h5>
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(1) }"><a href ng-click="calendar.selectTab(1)">1</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(2) }"><a href ng-click="calendar.selectTab(2)">2</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(3) }"><a href ng-click="calendar.selectTab(3)">3</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(4) }"><a href ng-click="calendar.selectTab(4)">4</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(5) }"><a href ng-click="calendar.selectTab(5)">5</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(6) }"><a href ng-click="calendar.selectTab(6)">6</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(7) }"><a href ng-click="calendar.selectTab(7)">7</a></li>
+            </ul>
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(8) }"><a href ng-click="calendar.selectTab(8)">8</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(9) }"><a href ng-click="calendar.selectTab(9)">9</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(10) }"><a href ng-click="calendar.selectTab(10)">10</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(11) }"><a href ng-click="calendar.selectTab(11)">11</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(12) }"><a href ng-click="calendar.selectTab(12)">12</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(13) }"><a href ng-click="calendar.selectTab(13)">13</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(14) }"><a href ng-click="calendar.selectTab(14)">14</a></li>
+            </ul>
+            
+            <ul class="nav nav-pills">
+                <li class="date-box" ng-class="{ active:calendar.isSelected(15) }"><a href ng-click="calendar.selectTab(15)">15</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(16) }"><a href ng-click="calendar.selectTab(16)">16</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(17) }"><a href ng-click="calendar.selectTab(17)">17</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(18) }"><a href ng-click="calendar.selectTab(18)">18</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(19) }"><a href ng-click="calendar.selectTab(19)">19</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(20) }"><a href ng-click="calendar.selectTab(20)">20</a></li>
+                <li class="date-box" ng-class="{ active:calendar.isSelected(21) }"><a href ng-click="calendar.selectTab(21)">21</a></li>
+            </ul>
+            
+        
+        <!----------------------------SHOW AVAILABLE ROOMS------------------------------------->
+			<h4>2. CHOOSE THE TIME</h4>
+			<p class="time"><b>AVAILABLE ROOMS dd/mm/yyyy</b></p>
+			<div class="av-rooms" ng-show="calendar.isSelected(1) || calendar.isSelected(22) || calendar.isSelected(23) || calendar.isSelected(24) || calendar.isSelected(25) || calendar.isSelected(26) || calendar.isSelected(27)
+		 || calendar.isSelected(28) || calendar.isSelected(29) || calendar.isSelected(30) || calendar.isSelected(31) || calendar.isSelected(32) || calendar.isSelected(33) || calendar.isSelected(34) || calendar.isSelected(35)
+		  || calendar.isSelected(36) || calendar.isSelected(37) || calendar.isSelected(38) || calendar.isSelected(39) || calendar.isSelected(40) || calendar.isSelected(41) || calendar.isSelected(42) || calendar.isSelected(43)
+		   || calendar.isSelected(44) || calendar.isSelected(45) || calendar.isSelected(46) || calendar.isSelected(47) || calendar.isSelected(48) || calendar.isSelected(49) || calendar.isSelected(50) || calendar.isSelected(51)
+		    || calendar.isSelected(52) || calendar.isSelected(53) || calendar.isSelected(54) || calendar.isSelected(55) || calendar.isSelected(56) || calendar.isSelected(57) || calendar.isSelected(58) || calendar.isSelected(59)
+			 || calendar.isSelected(60) || calendar.isSelected(61) || calendar.isSelected(62) || calendar.isSelected(63) || calendar.isSelected(64) || calendar.isSelected(65) || calendar.isSelected(66) || calendar.isSelected(67)
+			  || calendar.isSelected(68) || calendar.isSelected(69) || calendar.isSelected(70) || calendar.isSelected(71)">
+			<h5>Available rooms 1/12/2017</h5>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(22) }"><a href ng-click=""><h1>{{vm.products[0].roomdata1.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h1 == true" ng-class="{ active:calendar.isSelected(23) }"><a href ng-click="calendar.selectTab(23)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h1 == false" ng-class="{ active:calendar.isSelected(23) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h2 == true" ng-class="{ active:calendar.isSelected(24) }"><a href ng-click="calendar.selectTab(24)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h2 == false" ng-class="{ active:calendar.isSelected(24) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h3 == true" ng-class="{ active:calendar.isSelected(25) }"><a href ng-click="calendar.selectTab(25)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[0].roomdata1.h3 == false" ng-class="{ active:calendar.isSelected(25) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h4 == true" ng-class="{ active:calendar.isSelected(26) }"><a href ng-click="calendar.selectTab(26)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h4 == false" ng-class="{ active:calendar.isSelected(26) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h5 == true" ng-class="{ active:calendar.isSelected(27) }"><a href ng-click="calendar.selectTab(27)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h5 == false" ng-class="{ active:calendar.isSelected(27) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h6 == true" ng-class="{ active:calendar.isSelected(28) }"><a href ng-click="calendar.selectTab(28)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h6 == false" ng-class="{ active:calendar.isSelected(28) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h7 == true" ng-class="{ active:calendar.isSelected(29) }"><a href ng-click="calendar.selectTab(29)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h7 == false" ng-class="{ active:calendar.isSelected(29) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h8 == true" ng-class="{ active:calendar.isSelected(30) }"><a href ng-click="calendar.selectTab(30)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h8 == false" ng-class="{ active:calendar.isSelected(30) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata1.h9 == true" ng-class="{ active:calendar.isSelected(31) }"><a href ng-click="calendar.selectTab(31)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata1.h9 == false" ng-class="{ active:calendar.isSelected(31) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(32) }"><a href ng-click=""><h1>{{vm.products[0].roomdata2.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h1 == true" ng-class="{ active:calendar.isSelected(33) }"><a href ng-click="calendar.selectTab(33)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h1 == false" ng-class="{ active:calendar.isSelected(33) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h2 == true" ng-class="{ active:calendar.isSelected(34) }"><a href ng-click="calendar.selectTab(34)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h2 == false" ng-class="{ active:calendar.isSelected(34) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h3 == true" ng-class="{ active:calendar.isSelected(35) }"><a href ng-click="calendar.selectTab(35)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[0].roomdata2.h3 == false" ng-class="{ active:calendar.isSelected(35) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h4 == true" ng-class="{ active:calendar.isSelected(36) }"><a href ng-click="calendar.selectTab(36)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h4 == false" ng-class="{ active:calendar.isSelected(36) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h5 == true" ng-class="{ active:calendar.isSelected(37) }"><a href ng-click="calendar.selectTab(37)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h5 == false" ng-class="{ active:calendar.isSelected(37) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h6 == true" ng-class="{ active:calendar.isSelected(38) }"><a href ng-click="calendar.selectTab(38)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h6 == false" ng-class="{ active:calendar.isSelected(38) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h7 == true" ng-class="{ active:calendar.isSelected(39) }"><a href ng-click="calendar.selectTab(39)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h7 == false" ng-class="{ active:calendar.isSelected(39) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h8 == true" ng-class="{ active:calendar.isSelected(40) }"><a href ng-click="calendar.selectTab(40)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h8 == false" ng-class="{ active:calendar.isSelected(40) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata2.h9 == true" ng-class="{ active:calendar.isSelected(41) }"><a href ng-click="calendar.selectTab(41)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata2.h9 == false" ng-class="{ active:calendar.isSelected(41) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(42) }"><a href ng-click=""><h1>{{vm.products[0].roomdata3.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h1 == true" ng-class="{ active:calendar.isSelected(43) }"><a href ng-click="calendar.selectTab(43)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h1 == false" ng-class="{ active:calendar.isSelected(43) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h2 == true" ng-class="{ active:calendar.isSelected(44) }"><a href ng-click="calendar.selectTab(44)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h2 == false" ng-class="{ active:calendar.isSelected(44) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h3 == true" ng-class="{ active:calendar.isSelected(45) }"><a href ng-click="calendar.selectTab(45)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[0].roomdata3.h3 == false" ng-class="{ active:calendar.isSelected(45) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h4 == true" ng-class="{ active:calendar.isSelected(46) }"><a href ng-click="calendar.selectTab(46)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h4 == false" ng-class="{ active:calendar.isSelected(46) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h5 == true" ng-class="{ active:calendar.isSelected(47) }"><a href ng-click="calendar.selectTab(47)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h5 == false" ng-class="{ active:calendar.isSelected(47) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h6 == true" ng-class="{ active:calendar.isSelected(48) }"><a href ng-click="calendar.selectTab(48)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h6 == false" ng-class="{ active:calendar.isSelected(48) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h7 == true" ng-class="{ active:calendar.isSelected(49) }"><a href ng-click="calendar.selectTab(49)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h7 == false" ng-class="{ active:calendar.isSelected(49) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h8 == true" ng-class="{ active:calendar.isSelected(50) }"><a href ng-click="calendar.selectTab(50)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h8 == false" ng-class="{ active:calendar.isSelected(50) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata3.h9 == true" ng-class="{ active:calendar.isSelected(51) }"><a href ng-click="calendar.selectTab(51)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata3.h9 == false" ng-class="{ active:calendar.isSelected(51) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(52) }"><a href ng-click=""><h1>{{vm.products[0].roomdata4.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h1 == true" ng-class="{ active:calendar.isSelected(53) }"><a href ng-click="calendar.selectTab(53)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h1 == false" ng-class="{ active:calendar.isSelected(53) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h2 == true" ng-class="{ active:calendar.isSelected(54) }"><a href ng-click="calendar.selectTab(54)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h2 == false" ng-class="{ active:calendar.isSelected(54) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h3 == true" ng-class="{ active:calendar.isSelected(55) }"><a href ng-click="calendar.selectTab(55)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[0].roomdata4.h3 == false" ng-class="{ active:calendar.isSelected(55) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h4 == true" ng-class="{ active:calendar.isSelected(56) }"><a href ng-click="calendar.selectTab(56)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h4 == false" ng-class="{ active:calendar.isSelected(56) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h5 == true" ng-class="{ active:calendar.isSelected(57) }"><a href ng-click="calendar.selectTab(57)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h5 == false" ng-class="{ active:calendar.isSelected(57) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h6 == true" ng-class="{ active:calendar.isSelected(58) }"><a href ng-click="calendar.selectTab(58)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h6 == false" ng-class="{ active:calendar.isSelected(58) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h7 == true" ng-class="{ active:calendar.isSelected(59) }"><a href ng-click="calendar.selectTab(59)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h7 == false" ng-class="{ active:calendar.isSelected(59) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h8 == true" ng-class="{ active:calendar.isSelected(60) }"><a href ng-click="calendar.selectTab(60)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h8 == false" ng-class="{ active:calendar.isSelected(60) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata4.h9 == true" ng-class="{ active:calendar.isSelected(61) }"><a href ng-click="calendar.selectTab(61)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata4.h9 == false" ng-class="{ active:calendar.isSelected(61) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(62) }"><a href ng-click=""><h1>{{vm.products[0].roomdata5.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h1 == true" ng-class="{ active:calendar.isSelected(63) }"><a href ng-click="calendar.selectTab(63)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h1 == false" ng-class="{ active:calendar.isSelected(63) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h2 == true" ng-class="{ active:calendar.isSelected(64) }"><a href ng-click="calendar.selectTab(64)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h2 == false" ng-class="{ active:calendar.isSelected(64) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h3 == true" ng-class="{ active:calendar.isSelected(65) }"><a href ng-click="calendar.selectTab(65)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[0].roomdata5.h3 == false" ng-class="{ active:calendar.isSelected(65) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h4 == true" ng-class="{ active:calendar.isSelected(66) }"><a href ng-click="calendar.selectTab(66)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h4 == false" ng-class="{ active:calendar.isSelected(66) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h5 == true" ng-class="{ active:calendar.isSelected(67) }"><a href ng-click="calendar.selectTab(67)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h5 == false" ng-class="{ active:calendar.isSelected(67) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h6 == true" ng-class="{ active:calendar.isSelected(68) }"><a href ng-click="calendar.selectTab(68)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h6 == false" ng-class="{ active:calendar.isSelected(68) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h7 == true" ng-class="{ active:calendar.isSelected(69) }"><a href ng-click="calendar.selectTab(69)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h7 == false" ng-class="{ active:calendar.isSelected(69) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h8 == true" ng-class="{ active:calendar.isSelected(70) }"><a href ng-click="calendar.selectTab(70)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h8 == false" ng-class="{ active:calendar.isSelected(70) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[0].roomdata5.h9 == true" ng-class="{ active:calendar.isSelected(71) }"><a href ng-click="calendar.selectTab(71)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[0].roomdata5.h9 == false" ng-class="{ active:calendar.isSelected(71) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+        </div>                                   
+                                                                                                                       
+        <div class="av-rooms" ng-show="calendar.isSelected(2)|| calendar.isSelected(72) || calendar.isSelected(73) || calendar.isSelected(74) || calendar.isSelected(75) || calendar.isSelected(76) || calendar.isSelected(77)
+		 || calendar.isSelected(78) || calendar.isSelected(79) || calendar.isSelected(80) || calendar.isSelected(81) || calendar.isSelected(82) || calendar.isSelected(83) || calendar.isSelected(84) || calendar.isSelected(85)
+		  || calendar.isSelected(86) || calendar.isSelected(87) || calendar.isSelected(88) || calendar.isSelected(89) || calendar.isSelected(90) || calendar.isSelected(91) || calendar.isSelected(92) || calendar.isSelected(93)
+		   || calendar.isSelected(94) || calendar.isSelected(95) || calendar.isSelected(96) || calendar.isSelected(97) || calendar.isSelected(98) || calendar.isSelected(99) || calendar.isSelected(100) || calendar.isSelected(101)
+		    || calendar.isSelected(102) || calendar.isSelected(103) || calendar.isSelected(104) || calendar.isSelected(105) || calendar.isSelected(106) || calendar.isSelected(107) || calendar.isSelected(108) || calendar.isSelected(109)
+			 || calendar.isSelected(110) || calendar.isSelected(111) || calendar.isSelected(112) || calendar.isSelected(113) || calendar.isSelected(114) || calendar.isSelected(115) || calendar.isSelected(116) || calendar.isSelected(117)
+			  || calendar.isSelected(118) || calendar.isSelected(119)">
+            <h5>Available rooms 2/12/2017</h5>
+			<ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(22) }"><a href ng-click=""><h1>{{vm.products[1].roomdata1.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h1 == true" ng-class="{ active:calendar.isSelected(72) }"><a href ng-click="calendar.selectTab(72)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h1 == false" ng-class="{ active:calendar.isSelected(72) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h2 == true" ng-class="{ active:calendar.isSelected(73) }"><a href ng-click="calendar.selectTab(73)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h2 == false" ng-class="{ active:calendar.isSelected(73) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h3 == true" ng-class="{ active:calendar.isSelected(74) }"><a href ng-click="calendar.selectTab(74)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[1].roomdata1.h3 == false" ng-class="{ active:calendar.isSelected(74) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h4 == true" ng-class="{ active:calendar.isSelected(75) }"><a href ng-click="calendar.selectTab(75)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h4 == false" ng-class="{ active:calendar.isSelected(75) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h5 == true" ng-class="{ active:calendar.isSelected(76) }"><a href ng-click="calendar.selectTab(76)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h5 == false" ng-class="{ active:calendar.isSelected(76) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h6 == true" ng-class="{ active:calendar.isSelected(77) }"><a href ng-click="calendar.selectTab(77)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h6 == false" ng-class="{ active:calendar.isSelected(77) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h7 == true" ng-class="{ active:calendar.isSelected(78) }"><a href ng-click="calendar.selectTab(78)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h7 == false" ng-class="{ active:calendar.isSelected(78) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h8 == true" ng-class="{ active:calendar.isSelected(79) }"><a href ng-click="calendar.selectTab(79)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h8 == false" ng-class="{ active:calendar.isSelected(79) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata1.h9 == true" ng-class="{ active:calendar.isSelected(80) }"><a href ng-click="calendar.selectTab(80)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata1.h9 == false" ng-class="{ active:calendar.isSelected(80) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(81) }"><a href ng-click=""><h1>{{vm.products[1].roomdata2.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h1 == true" ng-class="{ active:calendar.isSelected(81) }"><a href ng-click="calendar.selectTab(81)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h1 == false" ng-class="{ active:calendar.isSelected(81) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h2 == true" ng-class="{ active:calendar.isSelected(82) }"><a href ng-click="calendar.selectTab(82)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h2 == false" ng-class="{ active:calendar.isSelected(82) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h3 == true" ng-class="{ active:calendar.isSelected(83) }"><a href ng-click="calendar.selectTab(83)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[1].roomdata2.h3 == false" ng-class="{ active:calendar.isSelected(83) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h4 == true" ng-class="{ active:calendar.isSelected(84) }"><a href ng-click="calendar.selectTab(84)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h4 == false" ng-class="{ active:calendar.isSelected(84) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h5 == true" ng-class="{ active:calendar.isSelected(85) }"><a href ng-click="calendar.selectTab(85)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h5 == false" ng-class="{ active:calendar.isSelected(85) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h6 == true" ng-class="{ active:calendar.isSelected(86) }"><a href ng-click="calendar.selectTab(86)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h6 == false" ng-class="{ active:calendar.isSelected(86) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h7 == true" ng-class="{ active:calendar.isSelected(87) }"><a href ng-click="calendar.selectTab(87)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h7 == false" ng-class="{ active:calendar.isSelected(87) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h8 == true" ng-class="{ active:calendar.isSelected(88) }"><a href ng-click="calendar.selectTab(88)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h8 == false" ng-class="{ active:calendar.isSelected(88) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata2.h9 == true" ng-class="{ active:calendar.isSelected(89) }"><a href ng-click="calendar.selectTab(89)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata2.h9 == false" ng-class="{ active:calendar.isSelected(89) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(90) }"><a href ng-click=""><h1>{{vm.products[1].roomdata3.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h1 == true" ng-class="{ active:calendar.isSelected(91) }"><a href ng-click="calendar.selectTab(91)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h1 == false" ng-class="{ active:calendar.isSelected(91) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h2 == true" ng-class="{ active:calendar.isSelected(92) }"><a href ng-click="calendar.selectTab(92)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h2 == false" ng-class="{ active:calendar.isSelected(92) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h3 == true" ng-class="{ active:calendar.isSelected(93) }"><a href ng-click="calendar.selectTab(93)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[1].roomdata3.h3 == false" ng-class="{ active:calendar.isSelected(93) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h4 == true" ng-class="{ active:calendar.isSelected(94) }"><a href ng-click="calendar.selectTab(94)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h4 == false" ng-class="{ active:calendar.isSelected(94) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h5 == true" ng-class="{ active:calendar.isSelected(95) }"><a href ng-click="calendar.selectTab(95)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h5 == false" ng-class="{ active:calendar.isSelected(95) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h6 == true" ng-class="{ active:calendar.isSelected(96) }"><a href ng-click="calendar.selectTab(96)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h6 == false" ng-class="{ active:calendar.isSelected(96) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h7 == true" ng-class="{ active:calendar.isSelected(97) }"><a href ng-click="calendar.selectTab(97)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h7 == false" ng-class="{ active:calendar.isSelected(97) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h8 == true" ng-class="{ active:calendar.isSelected(98) }"><a href ng-click="calendar.selectTab(98)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h8 == false" ng-class="{ active:calendar.isSelected(98) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata3.h9 == true" ng-class="{ active:calendar.isSelected(99) }"><a href ng-click="calendar.selectTab(99)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata3.h9 == false" ng-class="{ active:calendar.isSelected(99) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(100) }"><a href ng-click=""><h1>{{vm.products[1].roomdata4.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h1 == true" ng-class="{ active:calendar.isSelected(101) }"><a href ng-click="calendar.selectTab(101)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h1 == false" ng-class="{ active:calendar.isSelected(101) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h2 == true" ng-class="{ active:calendar.isSelected(102) }"><a href ng-click="calendar.selectTab(102)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h2 == false" ng-class="{ active:calendar.isSelected(102) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h3 == true" ng-class="{ active:calendar.isSelected(103) }"><a href ng-click="calendar.selectTab(103)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[1].roomdata4.h3 == false" ng-class="{ active:calendar.isSelected(103) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h4 == true" ng-class="{ active:calendar.isSelected(104) }"><a href ng-click="calendar.selectTab(104)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h4 == false" ng-class="{ active:calendar.isSelected(104) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h5 == true" ng-class="{ active:calendar.isSelected(105) }"><a href ng-click="calendar.selectTab(105)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h5 == false" ng-class="{ active:calendar.isSelected(105) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h6 == true" ng-class="{ active:calendar.isSelected(106) }"><a href ng-click="calendar.selectTab(106)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h6 == false" ng-class="{ active:calendar.isSelected(106) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h7 == true" ng-class="{ active:calendar.isSelected(107) }"><a href ng-click="calendar.selectTab(107)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h7 == false" ng-class="{ active:calendar.isSelected(107) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h8 == true" ng-class="{ active:calendar.isSelected(108) }"><a href ng-click="calendar.selectTab(108)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h8 == false" ng-class="{ active:calendar.isSelected(108) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata4.h9 == true" ng-class="{ active:calendar.isSelected(109) }"><a href ng-click="calendar.selectTab(109)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata4.h9 == false" ng-class="{ active:calendar.isSelected(109) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(110) }"><a href ng-click=""><h1>{{vm.products[1].roomdata5.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h1 == true" ng-class="{ active:calendar.isSelected(111) }"><a href ng-click="calendar.selectTab(111)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h1 == false" ng-class="{ active:calendar.isSelected(111) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h2 == true" ng-class="{ active:calendar.isSelected(112) }"><a href ng-click="calendar.selectTab(112)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h2 == false" ng-class="{ active:calendar.isSelected(112) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h3 == true" ng-class="{ active:calendar.isSelected(113) }"><a href ng-click="calendar.selectTab(113)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[1].roomdata5.h3 == false" ng-class="{ active:calendar.isSelected(113) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h4 == true" ng-class="{ active:calendar.isSelected(114) }"><a href ng-click="calendar.selectTab(114)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h4 == false" ng-class="{ active:calendar.isSelected(114) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h5 == true" ng-class="{ active:calendar.isSelected(115) }"><a href ng-click="calendar.selectTab(115)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h5 == false" ng-class="{ active:calendar.isSelected(115) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h6 == true" ng-class="{ active:calendar.isSelected(116) }"><a href ng-click="calendar.selectTab(116)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h6 == false" ng-class="{ active:calendar.isSelected(116) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h7 == true" ng-class="{ active:calendar.isSelected(117) }"><a href ng-click="calendar.selectTab(117)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h7 == false" ng-class="{ active:calendar.isSelected(117) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h8 == true" ng-class="{ active:calendar.isSelected(118) }"><a href ng-click="calendar.selectTab(118)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h8 == false" ng-class="{ active:calendar.isSelected(118) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[1].roomdata5.h9 == true" ng-class="{ active:calendar.isSelected(119) }"><a href ng-click="calendar.selectTab(119)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[1].roomdata5.h9 == false" ng-class="{ active:calendar.isSelected(119) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>	
+		</div>			
+        <div class="av-rooms" ng-show="calendar.isSelected(3) || calendar.isSelected(120) || calendar.isSelected(121) || calendar.isSelected(122) || calendar.isSelected(123) || calendar.isSelected(124) || calendar.isSelected(125)
+		 || calendar.isSelected(126) || calendar.isSelected(127) || calendar.isSelected(128) || calendar.isSelected(129) || calendar.isSelected(130) || calendar.isSelected(131) || calendar.isSelected(132) || calendar.isSelected(133)
+		  || calendar.isSelected(134) || calendar.isSelected(135) || calendar.isSelected(136) || calendar.isSelected(137) || calendar.isSelected(138) || calendar.isSelected(139) || calendar.isSelected(140) || calendar.isSelected(141)
+		   || calendar.isSelected(142) || calendar.isSelected(143) || calendar.isSelected(144) || calendar.isSelected(145) || calendar.isSelected(146) || calendar.isSelected(147) || calendar.isSelected(148) || calendar.isSelected(149)
+		    || calendar.isSelected(150) || calendar.isSelected(151) || calendar.isSelected(152) || calendar.isSelected(153) || calendar.isSelected(154) || calendar.isSelected(155) || calendar.isSelected(156) || calendar.isSelected(157)
+			 || calendar.isSelected(148) || calendar.isSelected(159) || calendar.isSelected(160) || calendar.isSelected(161) || calendar.isSelected(162) || calendar.isSelected(163) || calendar.isSelected(164) || calendar.isSelected(165)
+			  || calendar.isSelected(166) || calendar.isSelected(167)|| calendar.isSelected(168)|| calendar.isSelected(169)">
+            <h5>Available rooms 3/12/2017</h5>
+			<ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(120) }"><a href ng-click=""><h1>{{vm.products[2].roomdata1.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h1 == true" ng-class="{ active:calendar.isSelected(121) }"><a href ng-click="calendar.selectTab(121)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h1 == false" ng-class="{ active:calendar.isSelected(121) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h2 == true" ng-class="{ active:calendar.isSelected(122) }"><a href ng-click="calendar.selectTab(122)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h2 == false" ng-class="{ active:calendar.isSelected(122) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h3 == true" ng-class="{ active:calendar.isSelected(123) }"><a href ng-click="calendar.selectTab(123)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[2].roomdata1.h3 == false" ng-class="{ active:calendar.isSelected(123) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h4 == true" ng-class="{ active:calendar.isSelected(124) }"><a href ng-click="calendar.selectTab(124)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h4 == false" ng-class="{ active:calendar.isSelected(124) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h5 == true" ng-class="{ active:calendar.isSelected(125) }"><a href ng-click="calendar.selectTab(125)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h5 == false" ng-class="{ active:calendar.isSelected(125) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h6 == true" ng-class="{ active:calendar.isSelected(126) }"><a href ng-click="calendar.selectTab(126)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h6 == false" ng-class="{ active:calendar.isSelected(126) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h7 == true" ng-class="{ active:calendar.isSelected(127) }"><a href ng-click="calendar.selectTab(127)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h7 == false" ng-class="{ active:calendar.isSelected(127) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h8 == true" ng-class="{ active:calendar.isSelected(128) }"><a href ng-click="calendar.selectTab(128)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h8 == false" ng-class="{ active:calendar.isSelected(128) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata1.h9 == true" ng-class="{ active:calendar.isSelected(129) }"><a href ng-click="calendar.selectTab(129)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata1.h9 == false" ng-class="{ active:calendar.isSelected(129) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(130) }"><a href ng-click=""><h1>{{vm.products[2].roomdata2.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h1 == true" ng-class="{ active:calendar.isSelected(131) }"><a href ng-click="calendar.selectTab(131)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h1 == false" ng-class="{ active:calendar.isSelected(131) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h2 == true" ng-class="{ active:calendar.isSelected(132) }"><a href ng-click="calendar.selectTab(132)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h2 == false" ng-class="{ active:calendar.isSelected(132) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h3 == true" ng-class="{ active:calendar.isSelected(133) }"><a href ng-click="calendar.selectTab(133)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[2].roomdata2.h3 == false" ng-class="{ active:calendar.isSelected(133) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h4 == true" ng-class="{ active:calendar.isSelected(134) }"><a href ng-click="calendar.selectTab(134)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h4 == false" ng-class="{ active:calendar.isSelected(134) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h5 == true" ng-class="{ active:calendar.isSelected(135) }"><a href ng-click="calendar.selectTab(135)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h5 == false" ng-class="{ active:calendar.isSelected(135) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h6 == true" ng-class="{ active:calendar.isSelected(136) }"><a href ng-click="calendar.selectTab(136)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h6 == false" ng-class="{ active:calendar.isSelected(136) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h7 == true" ng-class="{ active:calendar.isSelected(137) }"><a href ng-click="calendar.selectTab(137)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h7 == false" ng-class="{ active:calendar.isSelected(137) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h8 == true" ng-class="{ active:calendar.isSelected(138) }"><a href ng-click="calendar.selectTab(138)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h8 == false" ng-class="{ active:calendar.isSelected(138) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata2.h9 == true" ng-class="{ active:calendar.isSelected(139) }"><a href ng-click="calendar.selectTab(139)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata2.h9 == false" ng-class="{ active:calendar.isSelected(139) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(140) }"><a href ng-click=""><h1>{{vm.products[2].roomdata3.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h1 == true" ng-class="{ active:calendar.isSelected(141) }"><a href ng-click="calendar.selectTab(141)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h1 == false" ng-class="{ active:calendar.isSelected(141) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h2 == true" ng-class="{ active:calendar.isSelected(142) }"><a href ng-click="calendar.selectTab(142)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h2 == false" ng-class="{ active:calendar.isSelected(142) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h3 == true" ng-class="{ active:calendar.isSelected(143) }"><a href ng-click="calendar.selectTab(143)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[2].roomdata3.h3 == false" ng-class="{ active:calendar.isSelected(143) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h4 == true" ng-class="{ active:calendar.isSelected(144) }"><a href ng-click="calendar.selectTab(144)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h4 == false" ng-class="{ active:calendar.isSelected(144) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h5 == true" ng-class="{ active:calendar.isSelected(145) }"><a href ng-click="calendar.selectTab(145)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h5 == false" ng-class="{ active:calendar.isSelected(145) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h6 == true" ng-class="{ active:calendar.isSelected(146) }"><a href ng-click="calendar.selectTab(146)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h6 == false" ng-class="{ active:calendar.isSelected(146) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h7 == true" ng-class="{ active:calendar.isSelected(147) }"><a href ng-click="calendar.selectTab(147)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h7 == false" ng-class="{ active:calendar.isSelected(147) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h8 == true" ng-class="{ active:calendar.isSelected(148) }"><a href ng-click="calendar.selectTab(148)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h8 == false" ng-class="{ active:calendar.isSelected(148) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata3.h9 == true" ng-class="{ active:calendar.isSelected(149) }"><a href ng-click="calendar.selectTab(149)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata3.h9 == false" ng-class="{ active:calendar.isSelected(149) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(150) }"><a href ng-click=""><h1>{{vm.products[2].roomdata4.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h1 == true" ng-class="{ active:calendar.isSelected(151) }"><a href ng-click="calendar.selectTab(151)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h1 == false" ng-class="{ active:calendar.isSelected(151) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h2 == true" ng-class="{ active:calendar.isSelected(152) }"><a href ng-click="calendar.selectTab(152)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h2 == false" ng-class="{ active:calendar.isSelected(152) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h3 == true" ng-class="{ active:calendar.isSelected(153) }"><a href ng-click="calendar.selectTab(153)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[2].roomdata4.h3 == false" ng-class="{ active:calendar.isSelected(153) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h4 == true" ng-class="{ active:calendar.isSelected(154) }"><a href ng-click="calendar.selectTab(154)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h4 == false" ng-class="{ active:calendar.isSelected(154) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h5 == true" ng-class="{ active:calendar.isSelected(155) }"><a href ng-click="calendar.selectTab(155)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h5 == false" ng-class="{ active:calendar.isSelected(155) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h6 == true" ng-class="{ active:calendar.isSelected(156) }"><a href ng-click="calendar.selectTab(156)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h6 == false" ng-class="{ active:calendar.isSelected(156) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h7 == true" ng-class="{ active:calendar.isSelected(157) }"><a href ng-click="calendar.selectTab(157)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h7 == false" ng-class="{ active:calendar.isSelected(157) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h8 == true" ng-class="{ active:calendar.isSelected(158) }"><a href ng-click="calendar.selectTab(158)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h8 == false" ng-class="{ active:calendar.isSelected(158) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata4.h9 == true" ng-class="{ active:calendar.isSelected(159) }"><a href ng-click="calendar.selectTab(159)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata4.h9 == false" ng-class="{ active:calendar.isSelected(158) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(160) }"><a href ng-click=""><h1>{{vm.products[2].roomdata5.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h1 == true" ng-class="{ active:calendar.isSelected(161) }"><a href ng-click="calendar.selectTab(161)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h1 == false" ng-class="{ active:calendar.isSelected(161) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h2 == true" ng-class="{ active:calendar.isSelected(162) }"><a href ng-click="calendar.selectTab(162)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h2 == false" ng-class="{ active:calendar.isSelected(162) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h3 == true" ng-class="{ active:calendar.isSelected(163) }"><a href ng-click="calendar.selectTab(163)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[2].roomdata5.h3 == false" ng-class="{ active:calendar.isSelected(163) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h4 == true" ng-class="{ active:calendar.isSelected(164) }"><a href ng-click="calendar.selectTab(164)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h4 == false" ng-class="{ active:calendar.isSelected(164) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h5 == true" ng-class="{ active:calendar.isSelected(165) }"><a href ng-click="calendar.selectTab(165)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h5 == false" ng-class="{ active:calendar.isSelected(165) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h6 == true" ng-class="{ active:calendar.isSelected(166) }"><a href ng-click="calendar.selectTab(166)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h6 == false" ng-class="{ active:calendar.isSelected(166) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h7 == true" ng-class="{ active:calendar.isSelected(167) }"><a href ng-click="calendar.selectTab(167)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h7 == false" ng-class="{ active:calendar.isSelected(167) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h8 == true" ng-class="{ active:calendar.isSelected(168) }"><a href ng-click="calendar.selectTab(168)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h8 == false" ng-class="{ active:calendar.isSelected(168) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[2].roomdata5.h9 == true" ng-class="{ active:calendar.isSelected(169) }"><a href ng-click="calendar.selectTab(169)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[2].roomdata5.h9 == false" ng-class="{ active:calendar.isSelected(169) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>	
+		</div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(4) || calendar.isSelected(170) || calendar.isSelected(171) || calendar.isSelected(173) || calendar.isSelected(174) || calendar.isSelected(175) || calendar.isSelected(176)
+		 || calendar.isSelected(177) || calendar.isSelected(178) || calendar.isSelected(179) || calendar.isSelected(180) || calendar.isSelected(181) || calendar.isSelected(182) || calendar.isSelected(183) || calendar.isSelected(184)
+		  || calendar.isSelected(185) || calendar.isSelected(186) || calendar.isSelected(187) || calendar.isSelected(188) || calendar.isSelected(189) || calendar.isSelected(190) || calendar.isSelected(191) || calendar.isSelected(192)
+		   || calendar.isSelected(193) || calendar.isSelected(194) || calendar.isSelected(195) || calendar.isSelected(196) || calendar.isSelected(197) || calendar.isSelected(198) || calendar.isSelected(199) || calendar.isSelected(200)
+		    || calendar.isSelected(201) || calendar.isSelected(202) || calendar.isSelected(203) || calendar.isSelected(204) || calendar.isSelected(205) || calendar.isSelected(206) || calendar.isSelected(207) || calendar.isSelected(208)
+			 || calendar.isSelected(209) || calendar.isSelected(210) || calendar.isSelected(211) || calendar.isSelected(212) || calendar.isSelected(213) || calendar.isSelected(214) || calendar.isSelected(215) || calendar.isSelected(216)
+			  || calendar.isSelected(217) || calendar.isSelected(218)|| calendar.isSelected(219)">
+            <h5>Available rooms 4/12/2017</h5>
+			<ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(170) }"><a href ng-click=""><h1>{{vm.products[3].roomdata1.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h1 == true" ng-class="{ active:calendar.isSelected(171) }"><a href ng-click="calendar.selectTab(171)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h1 == false" ng-class="{ active:calendar.isSelected(171) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h2 == true" ng-class="{ active:calendar.isSelected(172) }"><a href ng-click="calendar.selectTab(172)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h2 == false" ng-class="{ active:calendar.isSelected(172) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h3 == true" ng-class="{ active:calendar.isSelected(173) }"><a href ng-click="calendar.selectTab(173)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[3].roomdata1.h3 == false" ng-class="{ active:calendar.isSelected(173) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h4 == true" ng-class="{ active:calendar.isSelected(174) }"><a href ng-click="calendar.selectTab(174)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h4 == false" ng-class="{ active:calendar.isSelected(174) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h5 == true" ng-class="{ active:calendar.isSelected(175) }"><a href ng-click="calendar.selectTab(175)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h5 == false" ng-class="{ active:calendar.isSelected(175) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h6 == true" ng-class="{ active:calendar.isSelected(176) }"><a href ng-click="calendar.selectTab(176)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h6 == false" ng-class="{ active:calendar.isSelected(176) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h7 == true" ng-class="{ active:calendar.isSelected(177) }"><a href ng-click="calendar.selectTab(177)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h7 == false" ng-class="{ active:calendar.isSelected(177) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h8 == true" ng-class="{ active:calendar.isSelected(178) }"><a href ng-click="calendar.selectTab(178)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h8 == false" ng-class="{ active:calendar.isSelected(178) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata1.h9 == true" ng-class="{ active:calendar.isSelected(179) }"><a href ng-click="calendar.selectTab(179)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata1.h9 == false" ng-class="{ active:calendar.isSelected(179) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(180) }"><a href ng-click=""><h1>{{vm.products[3].roomdata2.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h1 == true" ng-class="{ active:calendar.isSelected(181) }"><a href ng-click="calendar.selectTab(181)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h1 == false" ng-class="{ active:calendar.isSelected(181) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h2 == true" ng-class="{ active:calendar.isSelected(182) }"><a href ng-click="calendar.selectTab(182)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h2 == false" ng-class="{ active:calendar.isSelected(182) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h3 == true" ng-class="{ active:calendar.isSelected(183) }"><a href ng-click="calendar.selectTab(183)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[3].roomdata2.h3 == false" ng-class="{ active:calendar.isSelected(183) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h4 == true" ng-class="{ active:calendar.isSelected(184) }"><a href ng-click="calendar.selectTab(184)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h4 == false" ng-class="{ active:calendar.isSelected(184) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h5 == true" ng-class="{ active:calendar.isSelected(185) }"><a href ng-click="calendar.selectTab(185)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h5 == false" ng-class="{ active:calendar.isSelected(185) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h6 == true" ng-class="{ active:calendar.isSelected(186) }"><a href ng-click="calendar.selectTab(186)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h6 == false" ng-class="{ active:calendar.isSelected(186) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h7 == true" ng-class="{ active:calendar.isSelected(187) }"><a href ng-click="calendar.selectTab(187)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h7 == false" ng-class="{ active:calendar.isSelected(187) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h8 == true" ng-class="{ active:calendar.isSelected(188) }"><a href ng-click="calendar.selectTab(188)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h8 == false" ng-class="{ active:calendar.isSelected(188) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata2.h9 == true" ng-class="{ active:calendar.isSelected(189) }"><a href ng-click="calendar.selectTab(189)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata2.h9 == false" ng-class="{ active:calendar.isSelected(189) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(190) }"><a href ng-click=""><h1>{{vm.products[3].roomdata3.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h1 == true" ng-class="{ active:calendar.isSelected(191) }"><a href ng-click="calendar.selectTab(191)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h1 == false" ng-class="{ active:calendar.isSelected(191) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h2 == true" ng-class="{ active:calendar.isSelected(192) }"><a href ng-click="calendar.selectTab(192)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h2 == false" ng-class="{ active:calendar.isSelected(192) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h3 == true" ng-class="{ active:calendar.isSelected(193) }"><a href ng-click="calendar.selectTab(193)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[3].roomdata3.h3 == false" ng-class="{ active:calendar.isSelected(193) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h4 == true" ng-class="{ active:calendar.isSelected(194) }"><a href ng-click="calendar.selectTab(194)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h4 == false" ng-class="{ active:calendar.isSelected(194) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h5 == true" ng-class="{ active:calendar.isSelected(195) }"><a href ng-click="calendar.selectTab(195)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h5 == false" ng-class="{ active:calendar.isSelected(195) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h6 == true" ng-class="{ active:calendar.isSelected(196) }"><a href ng-click="calendar.selectTab(196)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h6 == false" ng-class="{ active:calendar.isSelected(196) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h7 == true" ng-class="{ active:calendar.isSelected(197) }"><a href ng-click="calendar.selectTab(197)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h7 == false" ng-class="{ active:calendar.isSelected(197) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h8 == true" ng-class="{ active:calendar.isSelected(198) }"><a href ng-click="calendar.selectTab(198)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h8 == false" ng-class="{ active:calendar.isSelected(198) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata3.h9 == true" ng-class="{ active:calendar.isSelected(199) }"><a href ng-click="calendar.selectTab(199)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata3.h9 == false" ng-class="{ active:calendar.isSelected(199) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(200) }"><a href ng-click=""><h1>{{vm.products[3].roomdata4.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h1 == true" ng-class="{ active:calendar.isSelected(201) }"><a href ng-click="calendar.selectTab(201)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h1 == false" ng-class="{ active:calendar.isSelected(201) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h2 == true" ng-class="{ active:calendar.isSelected(202) }"><a href ng-click="calendar.selectTab(202)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h2 == false" ng-class="{ active:calendar.isSelected(202) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h3 == true" ng-class="{ active:calendar.isSelected(203) }"><a href ng-click="calendar.selectTab(203)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[3].roomdata4.h3 == false" ng-class="{ active:calendar.isSelected(203) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h4 == true" ng-class="{ active:calendar.isSelected(204) }"><a href ng-click="calendar.selectTab(204)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h4 == false" ng-class="{ active:calendar.isSelected(204) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h5 == true" ng-class="{ active:calendar.isSelected(205) }"><a href ng-click="calendar.selectTab(205)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h5 == false" ng-class="{ active:calendar.isSelected(205) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h6 == true" ng-class="{ active:calendar.isSelected(206) }"><a href ng-click="calendar.selectTab(206)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h6 == false" ng-class="{ active:calendar.isSelected(206) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h7 == true" ng-class="{ active:calendar.isSelected(207) }"><a href ng-click="calendar.selectTab(207)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h7 == false" ng-class="{ active:calendar.isSelected(207) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h8 == true" ng-class="{ active:calendar.isSelected(208) }"><a href ng-click="calendar.selectTab(208)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h8 == false" ng-class="{ active:calendar.isSelected(208) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata4.h9 == true" ng-class="{ active:calendar.isSelected(209) }"><a href ng-click="calendar.selectTab(209)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata4.h9 == false" ng-class="{ active:calendar.isSelected(209) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(210) }"><a href ng-click=""><h1>{{vm.products[3].roomdata5.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h1 == true" ng-class="{ active:calendar.isSelected(211) }"><a href ng-click="calendar.selectTab(211)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h1 == false" ng-class="{ active:calendar.isSelected(211) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h2 == true" ng-class="{ active:calendar.isSelected(212) }"><a href ng-click="calendar.selectTab(212)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h2 == false" ng-class="{ active:calendar.isSelected(212) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h3 == true" ng-class="{ active:calendar.isSelected(213) }"><a href ng-click="calendar.selectTab(213)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[3].roomdata5.h3 == false" ng-class="{ active:calendar.isSelected(213) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h4 == true" ng-class="{ active:calendar.isSelected(214) }"><a href ng-click="calendar.selectTab(214)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h4 == false" ng-class="{ active:calendar.isSelected(214) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h5 == true" ng-class="{ active:calendar.isSelected(215) }"><a href ng-click="calendar.selectTab(215)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h5 == false" ng-class="{ active:calendar.isSelected(215) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h6 == true" ng-class="{ active:calendar.isSelected(216) }"><a href ng-click="calendar.selectTab(216)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h6 == false" ng-class="{ active:calendar.isSelected(216) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h7 == true" ng-class="{ active:calendar.isSelected(217) }"><a href ng-click="calendar.selectTab(217)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h7 == false" ng-class="{ active:calendar.isSelected(217) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h8 == true" ng-class="{ active:calendar.isSelected(218) }"><a href ng-click="calendar.selectTab(218)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h8 == false" ng-class="{ active:calendar.isSelected(218) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[3].roomdata5.h9 == true" ng-class="{ active:calendar.isSelected(219) }"><a href ng-click="calendar.selectTab(219)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[3].roomdata5.h9 == false" ng-class="{ active:calendar.isSelected(219) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>	
+        </div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(5) || calendar.isSelected(220) || calendar.isSelected(221) || calendar.isSelected(222) || calendar.isSelected(223) || calendar.isSelected(224) || calendar.isSelected(225)
+		 || calendar.isSelected(226) || calendar.isSelected(227) || calendar.isSelected(228) || calendar.isSelected(229) || calendar.isSelected(230) || calendar.isSelected(231) || calendar.isSelected(232) || calendar.isSelected(233)
+		  || calendar.isSelected(234) || calendar.isSelected(235) || calendar.isSelected(236) || calendar.isSelected(237) || calendar.isSelected(238) || calendar.isSelected(239) || calendar.isSelected(240) || calendar.isSelected(241)
+		   || calendar.isSelected(242) || calendar.isSelected(243) || calendar.isSelected(244) || calendar.isSelected(245) || calendar.isSelected(246) || calendar.isSelected(247) || calendar.isSelected(248) || calendar.isSelected(249)
+		    || calendar.isSelected(250) || calendar.isSelected(251) || calendar.isSelected(252) || calendar.isSelected(253) || calendar.isSelected(254) || calendar.isSelected(255) || calendar.isSelected(256) || calendar.isSelected(257)
+			 || calendar.isSelected(258) || calendar.isSelected(259) || calendar.isSelected(260) || calendar.isSelected(261) || calendar.isSelected(262) || calendar.isSelected(263) || calendar.isSelected(264) || calendar.isSelected(265)
+			  || calendar.isSelected(266) || calendar.isSelected(267)|| calendar.isSelected(268) || calendar.isSelected(269)">
+            <h5>Available rooms 5/12/2017</h5>
+			<ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(220) }"><a href ng-click=""><h1>{{vm.products[4].roomdata1.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h1 == true" ng-class="{ active:calendar.isSelected(221) }"><a href ng-click="calendar.selectTab(221)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h1 == false" ng-class="{ active:calendar.isSelected(221) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h2 == true" ng-class="{ active:calendar.isSelected(222) }"><a href ng-click="calendar.selectTab(222)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h2 == false" ng-class="{ active:calendar.isSelected(222) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h3 == true" ng-class="{ active:calendar.isSelected(223) }"><a href ng-click="calendar.selectTab(223)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[4].roomdata1.h3 == false" ng-class="{ active:calendar.isSelected(223) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h4 == true" ng-class="{ active:calendar.isSelected(224) }"><a href ng-click="calendar.selectTab(224)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h4 == false" ng-class="{ active:calendar.isSelected(224) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h5 == true" ng-class="{ active:calendar.isSelected(225) }"><a href ng-click="calendar.selectTab(225)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h5 == false" ng-class="{ active:calendar.isSelected(225) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h6 == true" ng-class="{ active:calendar.isSelected(226) }"><a href ng-click="calendar.selectTab(226)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h6 == false" ng-class="{ active:calendar.isSelected(226) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h7 == true" ng-class="{ active:calendar.isSelected(227) }"><a href ng-click="calendar.selectTab(227)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h7 == false" ng-class="{ active:calendar.isSelected(227) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h8 == true" ng-class="{ active:calendar.isSelected(228) }"><a href ng-click="calendar.selectTab(228)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h8 == false" ng-class="{ active:calendar.isSelected(228) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata1.h9 == true" ng-class="{ active:calendar.isSelected(229) }"><a href ng-click="calendar.selectTab(229)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata1.h9 == false" ng-class="{ active:calendar.isSelected(229) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(230) }"><a href ng-click=""><h1>{{vm.products[4].roomdata2.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h1 == true" ng-class="{ active:calendar.isSelected(231) }"><a href ng-click="calendar.selectTab(231)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h1 == false" ng-class="{ active:calendar.isSelected(231) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h2 == true" ng-class="{ active:calendar.isSelected(232) }"><a href ng-click="calendar.selectTab(232)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h2 == false" ng-class="{ active:calendar.isSelected(232) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h3 == true" ng-class="{ active:calendar.isSelected(233) }"><a href ng-click="calendar.selectTab(233)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[4].roomdata2.h3 == false" ng-class="{ active:calendar.isSelected(233) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h4 == true" ng-class="{ active:calendar.isSelected(234) }"><a href ng-click="calendar.selectTab(234)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h4 == false" ng-class="{ active:calendar.isSelected(234) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h5 == true" ng-class="{ active:calendar.isSelected(235) }"><a href ng-click="calendar.selectTab(235)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h5 == false" ng-class="{ active:calendar.isSelected(235) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h6 == true" ng-class="{ active:calendar.isSelected(236) }"><a href ng-click="calendar.selectTab(236)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h6 == false" ng-class="{ active:calendar.isSelected(236) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h7 == true" ng-class="{ active:calendar.isSelected(237) }"><a href ng-click="calendar.selectTab(237)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h7 == false" ng-class="{ active:calendar.isSelected(237) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h8 == true" ng-class="{ active:calendar.isSelected(238) }"><a href ng-click="calendar.selectTab(238)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h8 == false" ng-class="{ active:calendar.isSelected(238) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata2.h9 == true" ng-class="{ active:calendar.isSelected(239) }"><a href ng-click="calendar.selectTab(239)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata2.h9 == false" ng-class="{ active:calendar.isSelected(239) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(240) }"><a href ng-click=""><h1>{{vm.products[4].roomdata3.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h1 == true" ng-class="{ active:calendar.isSelected(241) }"><a href ng-click="calendar.selectTab(241)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h1 == false" ng-class="{ active:calendar.isSelected(241) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h2 == true" ng-class="{ active:calendar.isSelected(242) }"><a href ng-click="calendar.selectTab(242)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h2 == false" ng-class="{ active:calendar.isSelected(242) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h3 == true" ng-class="{ active:calendar.isSelected(243) }"><a href ng-click="calendar.selectTab(243)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[4].roomdata3.h3 == false" ng-class="{ active:calendar.isSelected(243) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h4 == true" ng-class="{ active:calendar.isSelected(244) }"><a href ng-click="calendar.selectTab(244)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h4 == false" ng-class="{ active:calendar.isSelected(244) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h5 == true" ng-class="{ active:calendar.isSelected(245) }"><a href ng-click="calendar.selectTab(245)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h5 == false" ng-class="{ active:calendar.isSelected(245) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h6 == true" ng-class="{ active:calendar.isSelected(246) }"><a href ng-click="calendar.selectTab(246)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h6 == false" ng-class="{ active:calendar.isSelected(246) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h7 == true" ng-class="{ active:calendar.isSelected(247) }"><a href ng-click="calendar.selectTab(247)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h7 == false" ng-class="{ active:calendar.isSelected(247) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h8 == true" ng-class="{ active:calendar.isSelected(248) }"><a href ng-click="calendar.selectTab(248)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h8 == false" ng-class="{ active:calendar.isSelected(248) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata3.h9 == true" ng-class="{ active:calendar.isSelected(249) }"><a href ng-click="calendar.selectTab(249)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata3.h9 == false" ng-class="{ active:calendar.isSelected(249) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(250) }"><a href ng-click=""><h1>{{vm.products[4].roomdata4.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h1 == true" ng-class="{ active:calendar.isSelected(251) }"><a href ng-click="calendar.selectTab(251)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h1 == false" ng-class="{ active:calendar.isSelected(251) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h2 == true" ng-class="{ active:calendar.isSelected(252) }"><a href ng-click="calendar.selectTab(252)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h2 == false" ng-class="{ active:calendar.isSelected(252) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h3 == true" ng-class="{ active:calendar.isSelected(253) }"><a href ng-click="calendar.selectTab(253)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[4].roomdata4.h3 == false" ng-class="{ active:calendar.isSelected(253) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h4 == true" ng-class="{ active:calendar.isSelected(254) }"><a href ng-click="calendar.selectTab(254)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h4 == false" ng-class="{ active:calendar.isSelected(254) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h5 == true" ng-class="{ active:calendar.isSelected(255) }"><a href ng-click="calendar.selectTab(255)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h5 == false" ng-class="{ active:calendar.isSelected(255) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h6 == true" ng-class="{ active:calendar.isSelected(256) }"><a href ng-click="calendar.selectTab(256)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h6 == false" ng-class="{ active:calendar.isSelected(256) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h7 == true" ng-class="{ active:calendar.isSelected(257) }"><a href ng-click="calendar.selectTab(257)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h7 == false" ng-class="{ active:calendar.isSelected(257) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h8 == true" ng-class="{ active:calendar.isSelected(258) }"><a href ng-click="calendar.selectTab(258)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h8 == false" ng-class="{ active:calendar.isSelected(258) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata4.h9 == true" ng-class="{ active:calendar.isSelected(259) }"><a href ng-click="calendar.selectTab(259)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata4.h9 == false" ng-class="{ active:calendar.isSelected(259) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>
+			
+            <ul class="nav nav-pills">
+				<li class="room-box" ng-class="{ active:calendar.isSelected(260) }"><a href ng-click=""><h1>{{vm.products[4].roomdata5.rname}}</h1></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h1 == true" ng-class="{ active:calendar.isSelected(261) }"><a href ng-click="calendar.selectTab(261)"><p>8 - 9</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h1 == false" ng-class="{ active:calendar.isSelected(261) }"><a href ng-click=""><p>8 - 9</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h2 == true" ng-class="{ active:calendar.isSelected(262) }"><a href ng-click="calendar.selectTab(262)"><p>9 - 10</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h2 == false" ng-class="{ active:calendar.isSelected(262) }"><a href ng-click=""><p>9 - 10</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h3 == true" ng-class="{ active:calendar.isSelected(263) }"><a href ng-click="calendar.selectTab(263)"><p>10 - 11</p></a></li>
+                <li class="booked-box" ng-hide="vm.products[4].roomdata5.h3 == false" ng-class="{ active:calendar.isSelected(263) }"><a href ng-click=""><p>10 - 11</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h4 == true" ng-class="{ active:calendar.isSelected(264) }"><a href ng-click="calendar.selectTab(264)"><p>11 - 12</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h4 == false" ng-class="{ active:calendar.isSelected(264) }"><a href ng-click=""><p>11 - 12</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h5 == true" ng-class="{ active:calendar.isSelected(265) }"><a href ng-click="calendar.selectTab(265)"><p>12 - 13</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h5 == false" ng-class="{ active:calendar.isSelected(265) }"><a href ng-click=""><p>12 - 13</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h6 == true" ng-class="{ active:calendar.isSelected(266) }"><a href ng-click="calendar.selectTab(266)"><p>13 - 14</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h6 == false" ng-class="{ active:calendar.isSelected(266) }"><a href ng-click=""><p>13 - 14</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h7 == true" ng-class="{ active:calendar.isSelected(267) }"><a href ng-click="calendar.selectTab(267)"><p>14 - 15</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h7 == false" ng-class="{ active:calendar.isSelected(267) }"><a href ng-click=""><p>14 - 15</p></a></li>
+                <li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h8 == true" ng-class="{ active:calendar.isSelected(268) }"><a href ng-click="calendar.selectTab(268)"><p>15 - 16</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h8 == false" ng-class="{ active:calendar.isSelected(268) }"><a href ng-click=""><p>15 - 16</p></a></li>
+				<li class="unbooked-box" ng-hide="vm.products[4].roomdata5.h9 == true" ng-class="{ active:calendar.isSelected(269) }"><a href ng-click="calendar.selectTab(269)"><p>16 - 17</p></a></li>
+				<li class="booked-box" ng-hide="vm.products[4].roomdata5.h9 == false" ng-class="{ active:calendar.isSelected(269) }"><a href ng-click=""><p>16 - 17</p></a></li>
+            </ul>	
+        </div> 
+        <div class="av-rooms" ng-show="calendar.isSelected(6)">
+            <p>The rooms cannot be pre-booked on weekends</p>
+        </div>
+        
+        <div class="av-rooms" ng-show="calendar.isSelected(7)">
+            <p>The rooms cannot be pre-booked on weekends</p>
+        </div>
+		 <form ng-show="calendar.isSelected(22) || calendar.isSelected(23) || calendar.isSelected(24) || calendar.isSelected(25) || calendar.isSelected(26) || calendar.isSelected(27)
+		 || calendar.isSelected(28) || calendar.isSelected(29) || calendar.isSelected(30) || calendar.isSelected(31) || calendar.isSelected(32) || calendar.isSelected(33) || calendar.isSelected(34) || calendar.isSelected(35)
+		  || calendar.isSelected(36) || calendar.isSelected(37) || calendar.isSelected(38) || calendar.isSelected(39) || calendar.isSelected(40) || calendar.isSelected(41) || calendar.isSelected(42) || calendar.isSelected(43)
+		   || calendar.isSelected(44) || calendar.isSelected(45) || calendar.isSelected(46) || calendar.isSelected(47) || calendar.isSelected(48) || calendar.isSelected(49) || calendar.isSelected(50) || calendar.isSelected(51)
+		    || calendar.isSelected(52) || calendar.isSelected(53) || calendar.isSelected(54) || calendar.isSelected(55) || calendar.isSelected(56) || calendar.isSelected(57) || calendar.isSelected(58) || calendar.isSelected(59)
+			 || calendar.isSelected(60) || calendar.isSelected(61) || calendar.isSelected(62) || calendar.isSelected(63) || calendar.isSelected(64) || calendar.isSelected(65) || calendar.isSelected(66) || calendar.isSelected(67)
+			  || calendar.isSelected(68) || calendar.isSelected(69) || calendar.isSelected(70) || calendar.isSelected(71)">
+			<input type="text" name="email" value="e-mail adress..."><br>
+			<input type="text" name="comment" value="comment...">
+			<input type="submit" value="Book Room">
+		</form> 
+    </div>
+	</section>
+    <!----Angular----->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!----Javascript----->
+    <script src="js/app.js"></script>
+    </body>
+</html>
