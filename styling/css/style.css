@@ -1,4 +1,3 @@
-
 li.date-box {
     border: solid 2px #006F79;
     border-radius: 3px;
@@ -10,6 +9,10 @@ li.date-box {
 
 li.date-box:hover {
     background-color: #D3D3D3;
+}
+
+.active {
+    background-color: #ff8435;
 }
 
 ul {
@@ -33,6 +36,29 @@ a:hover {
 .av-rooms {
     margin-top: 50px;
 }
+
+.unbooked-box {
+    border: solid 2px #007781;
+    border-radius: 3px;
+    text-align: center;
+    height: 35px;
+    width: 65px;
+    margin: 3px;
+}
+
+.booked-box {
+    border: solid 2px #ff1414;
+    border-radius: 3px;
+    text-align: center;
+    height: 35px;
+    width: 65px;
+    margin: 3px;
+}
+
+h1{
+	padding-top: 8px;
+	font-size: 12px;
+}
 h5{
     font-family: Frutiger LT Std 55 Roman;
     margin-top:5%;
@@ -44,6 +70,7 @@ h4{
     text-align: center;
     font-size:1.5rem;
     margin-top:5%;
+    margin-bottom: 5%;
 }
 
 header{
@@ -63,10 +90,4 @@ h4.booking{
 p{
     font-family: Arial;
     margin-top:5%;
-}
-div.green{
-    width:50px;
-    height:50px;
-    border-radius: 20%;
-    border: 2 px #4D8C62;
 }
